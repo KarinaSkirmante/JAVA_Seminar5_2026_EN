@@ -1,35 +1,51 @@
 package lv.venta.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
+@Entity
+@Table(name = "ProductTable")
 public class Product {
 	//1.variables
 	@NotNull
 	@NotEmpty
 	@Pattern(regexp = "[A-Z]{1}[a-z ]{2,40}")
+	@Column(name = "Title")
 	private String title;
 	
 	@NotNull
+	@Column(name = "Category")
 	private Category category;
 	
 	@Min(0)
 	@Max(100)
+	@Column(name = "Price")
 	private float price;
 	
 	@Min(0)
 	@Max(1000)
+	@Column(name = "Quantity")
 	private int quantity;
 	
 	@NotNull
 	@NotEmpty
 	//TODO add @Pattern if you want
+	@Column(name = "Description")
 	private String description;
 	
 	//TODO set id unique from database
+	@Column(name = "Id")
+	@Id//this means that column values will be unique
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	//2.getters
 	//3.setters
