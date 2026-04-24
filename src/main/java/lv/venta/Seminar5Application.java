@@ -24,13 +24,13 @@ public class Seminar5Application {
 			@Override
 			public void run(String... args) throws Exception {
 				Product productData1 = 
-						new Product(2, "Apple", Category.fruits, 0.99f, 3, "Red");
+						new Product("Apple", Category.fruits, 0.99f, 3, "Red");
 				
 				Product productData2 = 
-							new Product(1, "Grapes", Category.fruits, 1.99f, 2, "Green");
+							new Product("Grapes", Category.fruits, 1.99f, 2, "Green");
 
 				Product productData3 = 
-							new Product(3, "Watermelon", Category.fruits, 4.99f, 1, "Sweet");
+							new Product("Watermelon", Category.fruits, 4.99f, 1, "Sweet");
 
 				prodRepo.save(productData1);
 				prodRepo.save(productData2);

@@ -100,6 +100,15 @@ public class Product {
 		setDescription(description);
 		setQuantity(quantity);
 	}
+	
+	public Product(String title, Category category, 
+			float price, int quantity, String description) {
+		setTitle(title);
+		setCategory(category);
+		setPrice(price);
+		setDescription(description);
+		setQuantity(quantity);
+	}
 	//5. toString 
 	@Override
 	public String toString()
