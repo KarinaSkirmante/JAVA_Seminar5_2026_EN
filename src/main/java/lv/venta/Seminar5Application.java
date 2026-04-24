@@ -37,6 +37,16 @@ public class Seminar5Application {
 				prodRepo.save(productData3);
 				
 				
+				System.out.println(prodRepo.count());
+				
+				System.out.println(prodRepo.findAll());
+				
+				Product productFromDB = prodRepo.findById(2).get();
+				productFromDB.setPrice(3.50f);
+				prodRepo.save(productFromDB);
+				prodRepo.deleteById(1);
+				System.out.println(prodRepo.findAll());
+				
 			}
 		};
 		
