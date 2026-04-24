@@ -1,17 +1,40 @@
 package lv.venta.model;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+
 public class Product {
 	//1.variables
+	@NotNull
+	@NotEmpty
+	@Pattern(regexp = "[A-Z]{1}[a-z ]{2,40}")
 	private String title;
+	
+	@NotNull
 	private Category category;
+	
+	@Min(0)
+	@Max(100)
 	private float price;
+	
+	@Min(0)
+	@Max(1000)
 	private int quantity;
+	
+	@NotNull
+	@NotEmpty
+	//TODO add @Pattern if you want
 	private String description;
+	
+	//TODO set id unique from database
 	private int id;
 	//2.getters
 	//3.setters
-	//TODO set id unique
-	//TODO create validations
+
+
 	public String getTitle() {
 		return title;
 	}

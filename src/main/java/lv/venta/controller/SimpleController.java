@@ -37,8 +37,8 @@ public class SimpleController {
 	public String getControllerProduct(Model model) {
 		System.out.println("The product controller is running");
 		
-		Product productData = 
-		new Product(2, "Apple", Category.fruits, 0.99f, 3, "Red");
+			Product productData = 
+			new Product(2, "Apple", Category.fruits, 0.99f, 3, "Red");
 		
 		model.addAttribute("box", productData);
 		return "product-page";//will show product-page.html file
