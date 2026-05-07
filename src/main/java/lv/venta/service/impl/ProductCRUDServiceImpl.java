@@ -47,7 +47,7 @@ public class ProductCRUDServiceImpl implements IProductCRUDService{
 	@Override
 	public ArrayList<Product> retrieveAllProducts() throws Exception {
 		if(prodRepo.count() == 0) {
-			throw new Exception("There is no product in DB");
+			throw new Exception("There is no products in DB");
 		}
 		
 		else
