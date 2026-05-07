@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -91,6 +92,25 @@ public class ProductCRUDController {
 	public String getControllerForProductAdd(Model model) {
 		model.addAttribute("product", new Product());//empty products is passed
 		return "add-product-page";
+	}
+	
+	@PostMapping("/add")
+	public String postControllerForProductAdd(Product product, Model model) {
+		
+		try
+		{
+		prodService.createProduct(
+				product.getTitle(), 
+				product.getCategory(), 
+				product.getPrice(),
+				product.getQuantity(),
+				product.getDescription());
+		
+		return "redirect:/product/crud/all";
+		}catch (Exception e) {
+			model.addAttribute("box", e.getMessage());
+			return "error-page";
+		}
 	}
 
 }
