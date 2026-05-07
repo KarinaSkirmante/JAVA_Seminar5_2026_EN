@@ -86,5 +86,11 @@ public class ProductCRUDController {
 			return "error-page";
 		}
 	}
+	
+	@GetMapping("/add")//localhost:8080/product/crud/add
+	public String getControllerForProductAdd(Model model) {
+		model.addAttribute("product", new Product());//empty products is passed
+		return "add-product-page";
+	}
 
 }
